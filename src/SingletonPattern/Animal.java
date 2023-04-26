@@ -1,7 +1,7 @@
 package SingletonPattern;
 
 public class Animal {
-    private static  Animal instance = null;
+    private static volatile   Animal instance = null;
     //now we stopped other people to create instance of this class bcoz of private modifier
     private Animal(){
         System.out.println("Animal class instantiated");
