@@ -5,6 +5,13 @@ public class Product {
     private String name ;
     private String description;
 
+    public Product(int id, String name, String description, int amount) {
+        Id = id;
+        this.name = name;
+        this.description = description;
+        this.amount = amount;
+    }
+
     public int getId() {
         return Id;
     }

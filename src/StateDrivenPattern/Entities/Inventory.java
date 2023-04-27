@@ -53,8 +53,25 @@ public class Inventory {
         Product product = aisleNoToProductMap.get(aisleNumber);
         int productId = product.getId();
         int productQuantity=productIdToQuantityMap.getOrDefault(productId,0);
-        if(productQuantity!=0){
+        if(productQuantity==0){
+                aisleNoToProductMap.remove(aisleNumber);
+                availableAisle.add(aisleNumber);
+                productIdToQuantityMap.remove(productId);
+        }else{
             productIdToQuantityMap.put(productId,productQuantity-1);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "aisleNoToProductMap=" + aisleNoToProductMap +
+                ", productIdToQuantityMap=" + productIdToQuantityMap +
+                ", availableAisle=" + availableAisle +
+                '}';
+    }
+
+    public Product getProduct(int aisleNumber){
+        return aisleNoToProductMap.get(aisleNumber);
     }
 }
